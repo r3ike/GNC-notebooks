@@ -8,6 +8,11 @@ class CircularBuffer:
     def add(self, element):
         self.buffer.append(element)
     
+    def add(self, timestamp, x_nominal, P):
+        self.buffer.append({
+
+        })
+    
     def __str__(self):
         return self.buffer.__str__()
 
