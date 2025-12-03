@@ -1,5 +1,7 @@
 import collections
 
+# valutare se bisogna salvarsi anche acc e gyro
+
 class CircularBuffer:
     def __init__(self, length):
         self.length = length
@@ -12,6 +14,12 @@ class CircularBuffer:
         self.buffer.append({
 
         })
+    
+    def get(self, index):
+        return self.buffer[index]
+    
+    def update(self, index , new_element):
+        self.buffer[index] = new_element
     
     def __str__(self):
         return self.buffer.__str__()
