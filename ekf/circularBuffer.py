@@ -10,10 +10,10 @@ class CircularBuffer:
     def add(self, element):
         self.buffer.append(element)
     
-    def add(self, timestamp, x_nominal, P):
-        self.buffer.append({
-
-        })
+    
+    #get last element
+    def get(self):
+        return self.buffer[-1]
     
     def get(self, index):
         return self.buffer[index]
