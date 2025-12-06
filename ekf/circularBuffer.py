@@ -12,11 +12,14 @@ class CircularBuffer:
     
     
     #get last element
-    def get(self):
-        return self.buffer[-1]
-    
-    def get(self, index):
-        return self.buffer[index]
+    def get(self, index=None):
+        if not self.buffer:
+            return None
+        if index is None:
+            return self.buffer[-1]
+        if -len(self.buffer) <= index < len(self.buffer):
+            return self.buffer[index]
+        raise IndexError("Index out of range in CircularBuffer.")
     
     def get_by_timestamp(self, timestamp):
         idx = min(range(len(self.buffer)), key=lambda i: abs(self.buffer[i]["timestamp"] - timestamp))
