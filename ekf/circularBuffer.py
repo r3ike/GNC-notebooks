@@ -25,9 +25,8 @@ class CircularBuffer:
         idx = min(range(len(self.buffer)), key=lambda i: abs(self.buffer[i]["timestamp"] - timestamp))
         return self.buffer[idx], idx
     
-    def update(self, index , x_nominal_new, P_new):
-        self.buffer[index].x_nominal = x_nominal_new
-        self.buffer[index].P = P_new
+    def update(self, index , element):
+        self.buffer[index] = element
 
     
     def __str__(self):

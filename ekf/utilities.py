@@ -1,8 +1,41 @@
 import numpy as np
 
+def quat_to_euler(q):
+    """
+    Converte un quaternione [qw, qx, qy, qz] in angoli di Eulero (roll, pitch, yaw)
+    nel convention roll->pitch->yaw (ZYX).
+    Ritorna gli angoli in radianti.
+    """
+    q = np.asarray(q, dtype=float)
+    
+    # normalizza per sicurezza
+    qw, qx, qy, qz = quat_norm(q)
+
+    # Roll (x-axis rotation)
+    sinr = 2 * (qw*qx + qy*qz)
+    cosr = 1 - 2 * (qx*qx + qy*qy)
+    roll = np.arctan2(sinr, cosr)
+
+    # Pitch (y-axis rotation)
+    sinp = 2 * (qw*qy - qz*qx)
+    sinp = np.clip(sinp, -1.0, 1.0)  # evita errori numerici
+    pitch = np.arcsin(sinp)
+
+    # Yaw (z-axis rotation)
+    siny = 2 * (qw*qz + qx*qy)
+    cosy = 1 - 2 * (qy*qy + qz*qz)
+    yaw = np.arctan2(siny, cosy)
+
+    return np.array([roll, pitch, yaw])
+
 def quat_norm(q):
     q = np.asarray(q, dtype=float)
-    return q / np.linalg.norm(q)  # normalizzazione
+
+    if np.linalg.norm(q) < 1e-12:
+        q = np.array([1,0,0,0])
+    else:
+        q = q / np.linalg.norm(q)
+    return q
 
 def rotmat_body_to_ned(q):
 
