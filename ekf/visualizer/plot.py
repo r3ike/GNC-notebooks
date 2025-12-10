@@ -18,6 +18,8 @@ def debug_ekf_plots(
     axs[0].set_title("Nominal Position")
     axs[0].legend(["x", "y", "z"])
 
+    
+
     axs[1].plot(t, nominal_vel)
     axs[1].set_title("Nominal Velocity")
     axs[1].legend(["vx", "vy", "vz"])
@@ -112,4 +114,17 @@ def debug_ekf_plots(
     axs[1].set_title("Gyroscope Raw")
 
     plt.tight_layout()
+
+    fig = plt.figure(figsize=(15, 10))
+        
+    # 1. Traiettoria 3D
+    ax1 = fig.add_subplot(231, projection='3d')
+    ax1.plot(nominal_pos[:, 0], nominal_pos[:, 1], nominal_pos[:, 2], label='Traiettoria nominale')
+    ax1.set_xlabel('East [m]')
+    ax1.set_ylabel('North [m]')
+    ax1.set_zlabel('Altitude [m]')
+    ax1.set_title('3D Trajectory')
+    ax1.legend()
+    ax1.grid(True)
+    
     plt.show()

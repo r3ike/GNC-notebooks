@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def quat_to_euler(q):
     """
@@ -168,3 +169,97 @@ def gps_to_ned(lat, lon, alt, lat0, lon0, alt0):
 
     ned = R @ de  # spostamento NED in metri
     return ned
+
+
+
+
+def integrate_quaternion_px4( q, gyro, dt):
+    """
+    Integrazione del quaternione identica a PX4
+    
+    Args:
+        q: Quaternione corrente
+        gyro: Misura del giroscopio [rad/s] (3,)
+        dt: Timestep [s]
+        
+    Returns:
+        Quaternione aggiornato
+    """
+    # Calcola l'angolo di rotazione integrato
+    delta_angle = gyro * dt
+    
+    # Norma dell'angolo di rotazione
+    delta_angle_norm = np.linalg.norm(delta_angle)
+    
+    # Quaternione incrementale
+    dq = np.array([1,0,0,0], dtype= np.float64)
+    
+    if delta_angle_norm > 1e-12:
+        # Formula esatta per rotazioni finite (identica a PX4)
+        theta = delta_angle_norm * 0.5
+        theta_sq = theta * theta
+        
+        # Approssimazione sin(x)/x per x piccolo (identica a PX4)
+        if theta_sq < 1.0e-4:
+            # Serie di Taylor: sin(theta)/theta ≈ 1 - theta²/6
+            sin_theta_over_theta = 1.0 - theta_sq / 6.0
+        else:
+            sin_theta_over_theta = math.sin(theta) / theta
+        
+        cos_theta = math.cos(theta)
+        
+        # Quaternione di rotazione incrementale (identico a PX4)
+        dq[0] = cos_theta
+        dq[1] = delta_angle[0] * 0.5 * sin_theta_over_theta
+        dq[2] = delta_angle[1] * 0.5 * sin_theta_over_theta
+        dq[3] = delta_angle[2] * 0.5 * sin_theta_over_theta
+    else:
+        # Per rotazioni molto piccole (identico a PX4)
+        dq[0] = 1.0
+        dq[1] = delta_angle[0] * 0.5
+        dq[2] = delta_angle[1] * 0.5
+        dq[3] = delta_angle[2] * 0.5
+        
+        # Normalizza (come in PX4)
+        dq_norm = dq.norm()
+        if dq_norm > 1e-12:
+            dq.data /= dq_norm
+    
+    # Aggiorna il quaternione: q_new = q_old ⊗ dq
+    return quat_multiply(q, dq)
+    
+def integrate_quaternion_optimized(q, gyro, dt):
+    """
+    Versione ottimizzata identica a quella in ecl/AttitudeEstimator.cpp
+    """
+    # Limita la velocità angolare massima (come in PX4)
+    gyro_norm = np.linalg.norm(gyro)
+    #if gyro_norm > self.MAX_ANGULAR_RATE:
+    #    gyro = gyro * (self.MAX_ANGULAR_RATE / gyro_norm)
+    
+    # Calcola l'angolo di rotazione
+    delta_angle = gyro * dt
+    angle_sq = np.sum(delta_angle**2)
+    angle = math.sqrt(angle_sq)
+    
+    dq = np.array([1,0,0,0],dtype= np.float64)
+    
+    if angle < 1e-6:
+        # Approssimazione del primo ordine per angoli piccoli
+        dq[0] = 1.0
+        dq[1] = 0.5 * delta_angle[0]
+        dq[2] = 0.5 * delta_angle[1]
+        dq[3] = 0.5 * delta_angle[2]
+    else:
+        # Formula esatta (identica a PX4)
+        sin_half_angle = math.sin(0.5 * angle)
+        cos_half_angle = math.cos(0.5 * angle)
+        scale = sin_half_angle / angle
+        
+        dq[0] = cos_half_angle
+        dq[1] = delta_angle[0] * scale
+        dq[2] = delta_angle[1] * scale
+        dq[3] = delta_angle[2] * scale
+    
+    # Moltiplica i quaternioni: q_new = q_old ⊗ dq
+    return quat_multiply(q, dq)
