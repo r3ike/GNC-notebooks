@@ -108,7 +108,7 @@ def debug_ekf_plots(
     axs[0].plot(t, imu_acc)
     axs[0].set_title("Accelerometer Raw")
 
-    axs[1].plot(t, imu_gyro[0])
+    axs[1].plot(t, imu_gyro)
     axs[1].set_title("Gyroscope Raw")
 
     plt.tight_layout()

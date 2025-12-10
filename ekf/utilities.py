@@ -37,6 +37,29 @@ def quat_norm(q):
         q = q / np.linalg.norm(q)
     return q
 
+def safe_rotmat_body_to_ned(q):
+    """Wrapper sicuro per la matrice di rotazione"""
+    q = np.asarray(q).ravel()
+    
+    # Normalizza
+    norm = np.linalg.norm(q)
+    if norm < 1e-12:
+        print("WARNING: Zero quaternion, using identity")
+        return np.eye(3)
+    
+    q_normalized = q / norm
+    
+    # Controlla NaN
+    if np.any(np.isnan(q_normalized)):
+        print("WARNING: NaN in quaternion, using identity")
+        return np.eye(3)
+    
+    try:
+        return rotmat_body_to_ned(q_normalized)
+    except:
+        print("ERROR: Rotation matrix computation failed")
+        return np.eye(3)
+    
 def rotmat_body_to_ned(q):
 
     qw, qx, qy, qz = quat_norm(q)
