@@ -1,0 +1,35 @@
+[1.023s] Invoking command in '/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/src/uav_sim_ros': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/uav_sim_ros build --build-base /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build install --record /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/install.log --single-version-externally-managed install_data
+[1.297s] running egg_info
+[1.297s] creating ../../build/uav_sim_ros/uav_sim_ros.egg-info
+[1.318s] writing ../../build/uav_sim_ros/uav_sim_ros.egg-info/PKG-INFO
+[1.319s] writing dependency_links to ../../build/uav_sim_ros/uav_sim_ros.egg-info/dependency_links.txt
+[1.319s] writing requirements to ../../build/uav_sim_ros/uav_sim_ros.egg-info/requires.txt
+[1.319s] writing top-level names to ../../build/uav_sim_ros/uav_sim_ros.egg-info/top_level.txt
+[1.319s] writing manifest file '../../build/uav_sim_ros/uav_sim_ros.egg-info/SOURCES.txt'
+[1.358s] reading manifest file '../../build/uav_sim_ros/uav_sim_ros.egg-info/SOURCES.txt'
+[1.359s] writing manifest file '../../build/uav_sim_ros/uav_sim_ros.egg-info/SOURCES.txt'
+[1.359s] running build
+[1.359s] running build_py
+[1.359s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build
+[1.359s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build/lib
+[1.360s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build/lib/uav_sim_ros
+[1.360s] copying uav_sim_ros/sim_node.py -> /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build/lib/uav_sim_ros
+[1.360s] copying uav_sim_ros/__init__.py -> /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build/lib/uav_sim_ros
+[1.360s] running install
+[1.367s] running install_lib
+[1.386s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages/uav_sim_ros
+[1.387s] copying /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build/lib/uav_sim_ros/sim_node.py -> /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages/uav_sim_ros
+[1.387s] copying /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build/lib/uav_sim_ros/__init__.py -> /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages/uav_sim_ros
+[1.387s] byte-compiling /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages/uav_sim_ros/sim_node.py to sim_node.cpython-312.pyc
+[1.388s] byte-compiling /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages/uav_sim_ros/__init__.py to __init__.cpython-312.pyc
+[1.388s] running install_data
+[1.388s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/share/ament_index
+[1.388s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/share/ament_index/resource_index
+[1.388s] creating /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/share/ament_index/resource_index/packages
+[1.388s] copying resource/uav_sim_ros -> /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/share/ament_index/resource_index/packages
+[1.388s] copying package.xml -> /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/share/uav_sim_ros
+[1.389s] running install_egg_info
+[1.411s] Copying ../../build/uav_sim_ros/uav_sim_ros.egg-info to /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages/uav_sim_ros-0.0.0-py3.12.egg-info
+[1.411s] running install_scripts
+[1.550s] writing list of installed files to '/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/install.log'
+[1.604s] Invoked command in '/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/src/uav_sim_ros' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/install/uav_sim_ros/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/uav_sim_ros build --build-base /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/build install --record /home/reike/Desktop/scrivania/robotics/simulations&notebooks/infinity-autopilot-simulation/ros_ws_infinity_autopilot/build/uav_sim_ros/install.log --single-version-externally-managed install_data
