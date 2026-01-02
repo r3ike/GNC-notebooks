@@ -8,8 +8,12 @@ setup.py
 ../../build/uav_sim_ros/uav_sim_ros.egg-info/top_level.txt
 ../../build/uav_sim_ros/uav_sim_ros.egg-info/zip-safe
 resource/uav_sim_ros
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py
 uav_sim_ros/__init__.py
 uav_sim_ros/sim_node.py
+uav_sim_ros.egg-info/PKG-INFO
+uav_sim_ros.egg-info/SOURCES.txt
+uav_sim_ros.egg-info/dependency_links.txt
+uav_sim_ros.egg-info/entry_points.txt
+uav_sim_ros.egg-info/requires.txt
+uav_sim_ros.egg-info/top_level.txt
+uav_sim_ros.egg-info/zip-safe

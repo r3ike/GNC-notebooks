@@ -2,12 +2,16 @@
 <sdf version="1.7">
   <world name="default">
     <gravity>0 0 -9.81</gravity>
-        <include>
-    <uri>model://ground_plane</uri>
+    <include>
+      <uri>model://ground_plane</uri>
     </include>
 
     <include>
-        <uri>model://sun</uri>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://uav_model</uri>
     </include>
   </world>
 </sdf>

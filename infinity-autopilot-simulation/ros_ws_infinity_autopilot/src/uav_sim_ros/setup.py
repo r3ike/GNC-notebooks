@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'sim_node = uav_sim_ros.sim_node:main',
         ],
     },
 )
